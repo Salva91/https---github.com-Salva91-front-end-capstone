@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
+
+/* Definizione delle variabili */
+$giallo-ocra: #2d6dc79c; /* Colore giallo ocra, sostituire con il colore desiderato */
+
+/* Stili globali */
+body {
+  font-family: 'Muli', sans-serif;
+  background: #fff;
+}
+
+/* Stili per l'header */
+.header {
+  height: 150px;
+  background-color: #3a6cb5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cani-adotto {
+  color: white;
+  margin: 0;
+}
+
+.cani-adotto2 {
+  color: #ccc;
+  margin: 0;
+}
+.bottone-filtro{
+  background-color: #3a7fe1;
+  border-radius: 5px;
+}
+/* Stili per le cards */
+.wsk-cp-product {
+  background: $giallo-ocra; /* Sostituire con il colore esatto desiderato */
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: relative;
+  margin: 20px auto;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.wsk-cp-product:hover {
+  transform: translateY(-5px);
+}
+
+.wsk-cp-img {
+  text-align: center;
+  flex: 1;
+}
+
+.wsk-cp-img img {
+  width: 100%;
+  height: 275px; /* Altezza fissa per le immagini */
+  object-fit: cover; /* Per mantenere l'aspetto uniforme */
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.wsk-cp-text {
+  padding-top: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.category > span {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #212121;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.title-product {
+  text-align: center;
+}
+
+.title-product h3 {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wcf-left {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Sposta il footer all'estremità inferiore */
+}
+
+.card-footer p {
+  margin: 0;
+  color: white;
+}
+
+.card-footer button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.card-footer button:hover {
+  text-decoration: underline;
+}
+
+.list-group.bg-custom-table {
+
+  background-color:#2d6dc7 !important;
+
+}
+.colore-proprieta {
+  color:white;
+  font-size: large;
+}
+.bottoni-strani{
+  display:flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 991px) {
+  .wsk-cp-product {
+    margin: 40px auto;
+  }
+}
+
+/* Stili per il form di creazione */
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+form button {
+  margin-right: 10px;
+}
+
+/* Stili per il template dei dettagli dell'animale selezionato */
+.wsk-cp-text-details {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-top: 20px;
+}
+
+.wsk-cp-text-details .title-product h3 {
+  color: #333;
+}
+
+.wsk-cp-text-details .description-prod {
+  color: #555;
+  text-align: justify;
+}
+
+.wsk-cp-text-details .list-group-item {
+  color: #666;
+}
+
+.wsk-cp-text-details .btn-primary {
+  background-color: #3e64ff;
+  border-color: #3e64ff;
+}
+
+.wsk-cp-text-details .btn-primary:hover {
+  background-color: #304ecc;
+  border-color: #304ecc;
+}
+
+/* Stili aggiuntivi per visualizzare l'immagine completa e i dettagli dell'animale selezionato */
+.wsk-cp-img-details {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.wsk-cp-img-details img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  object-fit: contain; /* Mostra l'immagine per intero senza sgranature */
+}
+
+.wsk-cp-text-details .title-product {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.wsk-cp-text-details .list-group-item {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.wsk-cp-text-details .btn-group {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Stili per l'animazione della card */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

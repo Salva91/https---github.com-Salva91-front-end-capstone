@@ -1,0 +1,140 @@
+<div class="header">
+  <h1 class="cani-adotto">Cani da adottare</h1>
+  <h4 class="cani-adotto2">annunci di Cani da Migliaia di annunci dalo cuccioli di tutte le taglie</h4>
+</div>
+
+<div class="container p-md-5">
+  <div class="input-group mb-3 mazzonlin-di-fiori" *ngIf="!showForm && !selectedAnimal">
+    <!-- Dropdown per filtrare per tipo -->
+    <div class="input-group-append">
+      <select class="form-control form-control-sm mazzonlin-di-fiori" [(ngModel)]="tipoFiltro">
+        <option value="">Tutti</option>
+        <option *ngFor="let tipo of tipiAnimali" [value]="tipo">{{ tipo }}</option>
+      </select>
+      <div class="bottone-filtro">
+        <button class="btn btn-primary"  (click)="filtraAnimali()">Filtra</button>
+      </div>
+    </div>
+    <!-- Pulsante per mostrare/nascondere il form di creazione -->
+    <div>
+      <button type="button" class="btn btn-primary btn-rounded ml-2" style="left: 1090px" (click)="toggleForm()">Crea Annuncio</button>
+    </div>
+  </div>
+
+  <!-- Elenco degli animali organizzato in righe di tre cards -->
+  <div class="row mt-4">
+    <div class="col-md-4 mb-4" *ngFor="let animale of animaliFiltrati">
+      <div class="wsk-cp-product">
+        <div class="wsk-cp-img">
+          <img [src]="animale.fotoUrl" class="img-responsive" alt="Immagine animale">
+        </div>
+        <div class="wsk-cp-text">
+          <div class="title-product">
+            <h3>{{ animale.nome }}</h3>
+          </div>
+          <div class="card-footer pt-2 d-flex align-items-center justify-content-between mx-0">
+            <p class="mb-0 me-2">Stato di adozione: {{ animale.adoptionStatus }}</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <button class="btn btn-primary btn-sm mr-2" (click)="selezionaAnimale(animale)">Dettagli</button>
+              <button class="btn btn-danger btn-sm" (click)="eliminaAnimale(animale.id!)">Elimina</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form per la creazione di un nuovo animale -->
+  <div *ngIf="showForm">
+    <form (ngSubmit)="creaAnimale()">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" [(ngModel)]="newAnimal.nome" name="nome" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="Descrizione">Descrizione</label>
+        <textarea id="Descrizione" [(ngModel)]="newAnimal.Descrizione" name="Descrizione" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="adoptionStatus">Stato di adozione</label>
+        <select id="adoptionStatus" [(ngModel)]="newAnimal.adoptionStatus" name="adoptionStatus" class="form-control">
+          <option value="DISPONIBILE">Disponibile</option>
+          <option value="IN_ADOZIONE">In adozione</option>
+          <option value="ADOTTATO">Adottato</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <select id="tipo" [(ngModel)]="newAnimal.tipo" name="tipo" class="form-control">
+          <option *ngFor="let tipo of tipiAnimali" [ngValue]="tipo">{{ tipo }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="anni">Anni</label>
+        <input type="number" id="anni" [(ngModel)]="newAnimal.anni" name="anni" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="statoSalute">Stato di salute</label>
+        <input type="text" id="statoSalute" [(ngModel)]="newAnimal.statoSalute" name="statoSalute" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="razza">Razza</label>
+        <input type="text" id="razza" [(ngModel)]="newAnimal.razza" name="razza" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="mantello">Mantello</label>
+        <input type="text" id="mantello" [(ngModel)]="newAnimal.mantello" name="mantello" class="form-control">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" id="sterilizzato" [(ngModel)]="newAnimal.sterilizzato" name="sterilizzato" class="form-check-input">
+        <label for="sterilizzato" class="form-check-label">Sterilizzato</label>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" id="microchip" [(ngModel)]="newAnimal.microchip" name="microchip" class="form-check-input">
+        <label for="microchip" class="form-check-label">Microchip</label>
+      </div>
+      <div class="form-group">
+        <label for="fotoUrl">URL della foto</label>
+        <input type="text" id="fotoUrl" [(ngModel)]="newAnimal.fotoUrl" name="fotoUrl" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary mr-2">Crea</button>
+      <button type="button" class="btn btn-danger" (click)="toggleForm()">Annulla</button>
+    </form>
+  </div>
+
+  <!-- Template per visualizzare i dettagli dell'animale selezionato -->
+  <div class="row justify-content-center" *ngIf="selectedAnimal">
+    <div class="col-md-6">
+      <div class="wsk-cp-product">
+        <div class="wsk-cp-img">
+          <img [src]="selectedAnimal.fotoUrl" class="img-responsive" alt="Immagine animale">
+        </div>
+        <div class="wsk-cp-text">
+          <div class="title-product">
+            <h3>{{ selectedAnimal.nome }}</h3>
+          </div>
+          <div class="description-prod">
+            <p>{{ selectedAnimal.Descrizione }}</p>
+          </div>
+          <ul class="colore-proprieta ">
+            <li class="list-group-item"><p>Anno di nascita {{ selectedAnimal.anni }}</p></li>
+            <li class="list-group-item"><p>Stato di adozione: {{ selectedAnimal.adoptionStatus }}</p></li>
+            <li class="list-group-item"><p>Tipo: {{ selectedAnimal.tipo }}</p></li>
+            <li class="list-group-item"><p>Stato di salute: {{ selectedAnimal.statoSalute }}</p></li>
+            <li class="list-group-item"><p>Razza: {{ selectedAnimal.razza }}</p></li>
+            <li class="list-group-item"><p>Sterilizzato: {{ selectedAnimal.sterilizzato ? 'Sì' : 'No' }}</p></li>
+            <li class="list-group-item"><p>Microchip: {{ selectedAnimal.microchip ? 'Sì' : 'No' }}</p></li>
+            <li class="list-group-item"><p>Mantello: {{ selectedAnimal.mantello }}</p></li>
+          </ul>
+          <div class="mt-3" class="bottoni-strani">
+            <button class="btn btn-primary btn-sm mr-2" (click)="annullaSelezione()">Torna indietro</button>
+<a class="btn btn-primary btn-sm mr-2" [routerLink]="['/adozione', selectedAnimal.id]">Adotta</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

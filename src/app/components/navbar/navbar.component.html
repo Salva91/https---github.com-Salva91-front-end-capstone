@@ -1,0 +1,34 @@
+<header [ngClass]="{'scrolled': scrolled}" class="sticky-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3 w-100">
+  <nav class="navbar navbar-expand-lg bg-white w-100 color-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="isUserLoggedIn">
+            <a class="nav-link" routerLink="/animali">Animali</a>
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn">
+            <a class="nav-link" routerLink="/blog">Blog</a>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="!isUserLoggedIn">
+            <a class="nav-link dropdown-toggle" (click)="show = !show" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu" [ngClass]="{ 'show': show }">
+              <li><a class="dropdown-item" routerLink="/auth/login">Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="/auth/register">Register</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex justify-content-end">
+          <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger">Esci</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

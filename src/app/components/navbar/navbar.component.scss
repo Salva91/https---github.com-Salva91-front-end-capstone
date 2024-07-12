@@ -1,0 +1,20 @@
+.w-100 {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 75px;
+}
+
+.color-nav{
+
+  background:#c0e3ff !important;
+}
+
+.color-nav {
+  background: #c0e3ff; /* Colore di sfondo predefinito */
+  transition: background-color 0.3s ease; /* Transizione fluida per il cambio di colore */
+}
+
+.scrolled .color-nav {
+  background-color: rgba(192, 227, 255, 0.668) !important; /* Colore di sfondo con trasparenza */
+}

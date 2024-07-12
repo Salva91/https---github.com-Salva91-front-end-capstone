@@ -1,0 +1,38 @@
+.container {
+  max-width: 500px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+h4 {
+  color: #007bff;
+}
+
+.alert {
+  font-size: 0.9rem;
+}
+
+.login-container {
+  background-image: url('https://img.freepik.com/foto-gratuito/carino-animale-domestico-collage-isolato_23-2150007407.jpg?t=st=1720460627~exp=1720464227~hmac=0965b2060949f593893fe5d3804aa77c01bcc3b3d85ac511f3f9fd118eb9261a&w=1380'); /* Imposta l'immagine di sfondo */
+  background-size: cover; /* Adatta l'immagine alla dimensione del contenitore */
+  background-position: center; /* Centra l'immagine */
+  height: 100vh; /* Altezza piena della viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+
+}

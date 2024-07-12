@@ -1,0 +1,9 @@
+<div class="header">
+  <h1 class="cani-adotto">Grazie per aver scelto di adottare {{ selectedAnimal?.nome }}</h1>
+  <h4 class="cani-adotto2">{{ selectedAnimal?.nome }} è un meraviglioso {{ selectedAnimal?.tipo }} in cerca di una casa amorevole.</h4>
+</div>
+<div class="container p-md-5">
+  <p>Siamo entusiasti della tua scelta e ti contatteremo al più presto per completare l'adozione. </p>
+  <p>Verrai reindirizzato alla pagina degli animali tra pochi secondi.</p>
+  <button class="btn-primary" (click)="navigateToAnimals()">Visualizza altri animali</button>
+</div>
