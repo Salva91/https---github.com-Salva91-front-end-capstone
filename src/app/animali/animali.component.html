@@ -1,6 +1,9 @@
 <div class="header">
-  <h1 class="cani-adotto">Cani da adottare</h1>
-  <h4 class="cani-adotto2">annunci di Cani da Migliaia di annunci dalo cuccioli di tutte le taglie</h4>
+  <h1 class="cani-adotto">DAL BOX AL SALOTTO</h1>
+  <h4 class="cani-adotto2">Qua la zampa nasce per facilitare l’adozione consapevole di cani e gatti ospitati dalla nostra associazione </h4>
+  <h4 class="cani-adotto2">fornisce schede dettagliate e filtri per una ricerca veloce e mirata in base alle proprie esigenze</h4>
+  <h4 class="cani-adotto2">favorisce l’adozione consapevole e responsabile</h4>
+  <h4 class="cani-adotto2">mira ad evitare dolorosi ritorni degli animali nelle strutture</h4>
 </div>
 
 <div class="container p-md-5">
@@ -128,13 +131,12 @@
           </ul>
           <div class="mt-3" class="bottoni-strani">
             <button class="btn btn-primary btn-sm mr-2" (click)="annullaSelezione()">Torna indietro</button>
-<a class="btn btn-primary btn-sm mr-2" [routerLink]="['/adozione', selectedAnimal.id]">Adotta</a>
-
+            <a class="btn btn-primary btn-sm mr-2" [routerLink]="['/adozione', selectedAnimal.id]">Adotta</a>
+            <button class="btn btn-danger btn-sm" (click)="eliminaAnimale(selectedAnimal.id!)">Elimina</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
-
-

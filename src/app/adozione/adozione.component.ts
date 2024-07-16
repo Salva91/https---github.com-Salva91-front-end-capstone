@@ -14,13 +14,11 @@ export class AdozioneComponent implements OnInit {
   selectedAnimal: IAnimal | null = null;
 
   constructor(private router: Router) { }
-
   ngOnInit(): void {
-    // Reindirizza automaticamente alla pagina degli animali dopo 5 secondi
-    setTimeout(() => {
-      this.router.navigate(['/animali']);
-    }, 7000);
+    throw new Error('Method not implemented.');
   }
+
+
 
   selezionaAnimale(animale: IAnimal): void {
     this.selectedAnimal = animale;

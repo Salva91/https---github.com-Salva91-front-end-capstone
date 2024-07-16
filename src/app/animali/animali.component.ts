@@ -85,25 +85,18 @@ export class AnimaliComponent implements OnInit {
     });
   }
 
-  aggiornaAnimale(id: number, animale: IAnimal): void {
-    this.animaliService.updateAnimale(id, animale).subscribe({
-      next: (updatedAnimale) => {
-        this.caricaAnimali();
-        this.selectedAnimal = null;
-      },
-      error: (error) => {
-        console.error('Si è verificato un errore nell\'aggiornamento dell\'animale:', error);
-      }
-    });
-  }
-
   eliminaAnimale(id: number): void {
-    this.animaliService.deleteAnimale(id).subscribe({
-      next: () => {
-        this.caricaAnimali();
+    this.animaliService.eliminaAnimale(id).subscribe({
+      next: (message) => {
+        console.log('Animale eliminato:', message);
+        // Rimuovi l'animale dall'array
+        this.animali = this.animali.filter(animale => animale.id !== id);
+        if (this.selectedAnimal && this.selectedAnimal.id === id) {
+          this.selectedAnimal = null;
+        }
       },
       error: (error) => {
-        console.error('Si è verificato un errore nell\'eliminazione dell\'animale:', error);
+        console.error('Errore durante eliminazione animale:', error);
       }
     });
   }
@@ -133,6 +126,5 @@ export class AnimaliComponent implements OnInit {
       fotoUrl: '',
     };
   }
-
 
 }

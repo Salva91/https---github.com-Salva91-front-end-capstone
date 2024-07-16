@@ -5,9 +5,8 @@
   height: 75px;
 }
 
-.color-nav{
-
-  background:#c0e3ff !important;
+.color-nav {
+  background: #c0e3ff !important;
 }
 
 .color-nav {
@@ -18,3 +17,16 @@
 .scrolled .color-nav {
   background-color: rgba(192, 227, 255, 0.668) !important; /* Colore di sfondo con trasparenza */
 }
+
+/* Applica la famiglia di font sans-serif a tutta la navbar */
+.navbar, .navbar * {
+  font-family: sans-serif;
+}
+
+/* Aumenta la dimensione del testo dei link specificati */
+.navbar-nav .nav-link {
+  font-size: 1.1rem; /* Puoi modificare il valore secondo le tue esigenze */
+
+}
+
+

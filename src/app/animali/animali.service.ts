@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IAnimal } from '../Models/ianimal';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +20,10 @@ export class AnimaliService {
       return this.http.put<IAnimal>(`${this.apiUrl}/${id}`, animale);
     }
 
-    deleteAnimale(id: number): Observable<void> {
-      return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    eliminaAnimale(id: number): Observable<any> {
+      return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
     }
+
 
     getAnimali(): Observable<IAnimal[]> {
       return this.http.get<IAnimal[]>(this.apiUrl);

@@ -36,6 +36,12 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   border-radius: 8px;
+
+}
+.wrapper-container{
+  display:flex;
+  flex-direction: column;
+  flex-direction: center;
 }
 
 .btn-primary {
@@ -54,4 +60,88 @@ body {
 
 .btn-primary:hover {
   background-color: #2e519c;
+}
+.wrapper{
+  min-height: calc(100vh - 175px);
+
+}
+.wrapper-stamp{
+margin: 0 auto;
+margin-block: 5rem;
+}
+.adottato{
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+
+}
+
+.stamp{
+  height: 100px;
+  width: 100px;
+  left: 250px;
+  top: 20px;
+  border-radius: 5px;
+  position: relative;
+  background-color: #2d6dc79c;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.50;
+    transform-origin: 50% 50%;
+    transform: rotate(-2deg) scale(5);
+    transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.50;
+    transform-origin: 50% 50%;
+    transform: rotate(-2deg) scale(5);
+    transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1);
+  }
+}
+
+.button-animali{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.content-message{
+
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+.arcibaldo{
+
+  display: flex;
+  flex-direction: column;
 }
