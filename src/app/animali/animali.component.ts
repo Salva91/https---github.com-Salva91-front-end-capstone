@@ -91,9 +91,12 @@ export class AnimaliComponent implements OnInit {
         console.log('Animale eliminato:', message);
         // Rimuovi l'animale dall'array
         this.animali = this.animali.filter(animale => animale.id !== id);
+        // Se l'animale selezionato è stato eliminato, resettalo
         if (this.selectedAnimal && this.selectedAnimal.id === id) {
           this.selectedAnimal = null;
         }
+        // Aggiorna l'elenco degli animali filtrati
+        this.filtraAnimali();
       },
       error: (error) => {
         console.error('Errore durante eliminazione animale:', error);
